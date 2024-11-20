@@ -84,20 +84,23 @@
             
             //nya diven, som jag planerar skapa och lägga till text, time och image
             newdiv = document.createElement("div");
-            newdiv.style.position = "absolute";
-            newdiv.style.top = "10px"; 
-            newdiv.style.width = "100%";
-            newdiv.style.height = "240px";
-            newdiv.style.textAlign = "center";
-            newdiv.style.backgroundColor = "gray";
 
-            //den har en viss bakgrunds färg, och en viss storlek osv
+
+
             
             //lagrar img i image variabel
             
             let image = document.querySelector("img");
             //if true, ändra style på variabeln, (ändra position osv)
             if (image) {
+                //lägger till de här ny div grejer här också, annars uppstår problem
+                //den har en viss bakgrunds färg, och en viss storlek osv
+                newdiv.style.position = "absolute";
+                newdiv.style.top = "10px"; 
+                newdiv.style.width = "100%";
+                newdiv.style.height = "240px";
+                newdiv.style.textAlign = "center";
+                newdiv.style.backgroundColor = "gray";
                 image.style.position = "absolute";
                 image.style.top = "17vh"; 
                 image.style.left = "50%";
@@ -116,13 +119,13 @@
                 timeText.style.color = "white";
                 newdiv.appendChild(timeText);
             }
-            //hittar h1 element och om det finns gör de här grejen
+            //hittar h1 element och om det finns gör det här
             let goodvibes_txt = document.querySelector("h1");
             if (goodvibes_txt) {
                 goodvibes_txt.style.position = "absolute";
                 goodvibes_txt.style.top = "1vh"; 
                 goodvibes_txt.style.left = "50%";
-                goodvibes_txts.style.transform = "translateX(-50%)";
+                goodvibes_txt.style.transform = "translateX(-50%)";
                 goodvibes_txt.style.fontSize = "45px";
                 goodvibes_txt.style.color = "white";
                 newdiv.appendChild(goodvibes_txt);

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* bodyn mer display flex */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        /* main div kommer ha det följande egenskaper */
+        div {
+            background-color: red;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            width: 400px; 
+            justify-content: center;
+        }
+        /* knappar och dess egenskaper */
+        button {
+            background-color: lightblue;
+            padding: 20px;
+            border-radius: 5px;
+            width: 100px;
+            margin: 15px; 
+            text-align: center;
+        }
+        /* button hover egenskap, om man har muspekaren över ändra färg*/
+        button:hover {
+            background-color: yellow;
+        }
+        /* egenskaper för bilden */
+        img {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 200px;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- först skapar jag en img tag och de 9 knappar som kommer behövas, onclick, de olika functioner har olika saker som de gör -->
+    <img src="https://static.wikia.nocookie.net/skibidi-toilet-fanon-v2/images/4/42/Regular_skibdi_toilet.png/revision/latest?cb=20231015225459" alt="image of skibidi-toilet-fanon-v2" width="200px">
+    <div id="thediv">
+        <button onclick="f1()">Change BG</button>
+        <button onclick="f2()">Change picture</button>
+        <button onclick="f3()">Header</button>
+        <button onclick="f4()">Good vibes</button>
+        <button onclick="f5()">Hide picture</button>
+        <button onclick="f6()">Remove header</button>
+        <button onclick="f7()">Time</button>
+        <button onclick="f8()">Show picture</button>
+        <button onclick="f9()">Show header</button>
+    </div>
+
+    <script>
+        //den första ändrar ju bakgrundsfärge
+        function f1() {
+            document.body.style.backgroundColor = "pink";
+        }
+        
+        //andra knappen, sparar img (som redan finns)i variabel med namnet image, och sen.src ändrar bilden pga av olika image adress
+        function f2() {
+            let image = document.querySelector("img");
+            image.src = "https://www.theqe2story.com/forum/index.php?action=dlattach;ts=1594074188;topic=1360.0;attach=90152";
+        }
+        //skapar en new div med en global räckvidd, somkommer behövas
+        let newdiv;
+
+        function f3() {
+            //diven med alla knapp heter thediv och dess egenskaper:
+            let thediv = document.getElementById("thediv");
+            thediv.style.position = "relative";
+            thediv.style.top = "17vh";
+            
+            //nya diven, som jag planerar skapa och lägga till text, time och image
+            newdiv = document.createElement("div");
+            newdiv.style.position = "absolute";
+            newdiv.style.top = "10px"; 
+            newdiv.style.width = "100%";
+            newdiv.style.height = "240px";
+            newdiv.style.textAlign = "center";
+            newdiv.style.backgroundColor = "gray";
+
+            //den har en viss bakgrunds färg, och en viss storlek osv
+            
+            //lagrar img i image variabel
+            
+            let image = document.querySelector("img");
+            //if true, ändra style på variabeln, (ändra position osv)
+            if (image) {
+                image.style.position = "absolute";
+                image.style.top = "17vh"; 
+                image.style.left = "50%";
+                image.style.transform = "translateX(-50%)";
+                image.style.border = "3px solid green";
+                newdiv.appendChild(image);
+            }
+
+            let timeText = document.querySelector("h2");
+            //if true, ändra style på variabeln, (ändra position osv)
+            if (timeText) {
+                timeText.style.position = "absolute";
+                timeText.style.top = "10vh"; 
+                timeText.style.left = "50%";
+                timeText.style.transform = "translateX(-50%)";
+                timeText.style.color = "white";
+                newdiv.appendChild(timeText);
+            }
+            //hittar h1 element och om det finns gör de här grejen
+            let goodvibes_txt = document.querySelector("h1");
+            if (goodvibes_txt) {
+                goodvibes_txt.style.position = "absolute";
+                goodvibes_txt.style.top = "1vh"; 
+                goodvibes_txt.style.left = "50%";
+                goodvibes_txts.style.transform = "translateX(-50%)";
+                goodvibes_txt.style.fontSize = "45px";
+                goodvibes_txt.style.color = "white";
+                newdiv.appendChild(goodvibes_txt);
+            }
+            //appenda både newdiv och den div med alla knappar
+            document.body.appendChild(newdiv);
+            document.body.appendChild(thediv);
+            document.body.style.overflow = "hidden";
+            document.documentElement.style.overflow = "hidden";
+        }
+
+        function f4() {
+            //skapa,tilldela, och visa goodvibes texten.
+            let goodvibes_txt = document.createElement("h1");
+            //tilldela värde
+            goodvibes_txt.innerHTML = "Dream big Work hard!";
+            //visa
+            document.body.appendChild(goodvibes_txt);
+            //andra styles som krävs
+            goodvibes_txt.style.position = "absolute";
+            goodvibes_txt.style.top = "0px";
+            goodvibes_txt.style.left = "0px";
+            goodvibes_txt.style.margin = "10px";
+            goodvibes_txt.style.fontSize = "45px"; 
+
+            //lagra bilden och fixar en absolute position och avstånd från toppen
+            let image = document.querySelector("img");
+            image.style.position = "absolute";
+            image.style.top = "70px";
+        }
+
+        function f5() {
+            //lagra bilden i image variabel
+            let image = document.querySelector("img");
+            //display none så göm bilden
+            image.style.display = "none";
+        }
+        //hide header helt enkelt
+        function f6() {
+            //if true, display blir none så det är hiden
+            if (newdiv) {
+                
+                newdiv.style.display = "none";  
+            }
+        }
+
+        function f7() {
+
+            let currentDate = new Date();
+            let day = currentDate.getDate();
+            let month = currentDate.getMonth() + 1; //+1 pga av indexering
+            let year = currentDate.getFullYear();
+            let hours = currentDate.getHours();
+            let minutes = currentDate.getMinutes();
+            let seconds = currentDate.getSeconds();
+
+            // tar reda på time zone
+            let timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+            let timeText = document.createElement("h2");
+            timeText.innerHTML = `Date: ${day}/${month}/${year} Time: ${hours}:${minutes}:${seconds} GMT | Time Zone: ${timeZone}`;
+            document.body.appendChild(timeText);
+
+            timeText.style.position = "absolute";
+            timeText.style.top = "65px"; 
+            timeText.style.left = "0px";
+            timeText.style.margin = "10px";
+            timeText.style.fontSize = "18px";
+            timeText.style.color = "black";
+
+            let image = document.querySelector("img");
+            image.style.position = "absolute";
+            image.style.top = "130px";
+        }
+
+        function f8() {
+            //display block gör så att det bilden syns igen
+            let image = document.querySelector("img");
+            image.style.display = "block";
+        }
+
+
+        //show
+        function f9() {
+            if (!newdiv) { 
+                f3();  
+            } else { 
+                newdiv.style.display = "block";  
+            }
+        }
+    </script>
+</body>
+</html>
